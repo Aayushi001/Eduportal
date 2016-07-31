@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('content'); ?>
 
 <div class="container-fluid" id="strip">
@@ -136,5 +137,6 @@
 
 
 <?php $__env->stopSection(); ?>
+
 
 <?php echo $__env->make('layouts.discussionLayout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

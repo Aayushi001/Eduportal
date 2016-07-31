@@ -6411,6 +6411,7 @@ Stack trace:
 #87 C:\xampp\htdocs\EduPortal\public\index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #88 C:\xampp\htdocs\EduPortal\server.php(21): require_once('C:\\xampp\\htdocs...')
 #89 {main}  
+
 [2016-07-24 13:31:36] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '}'' in C:\xampp\htdocs\Eduportal-master\database\migrations\2016_07_24_132852_create_questions_table.php:23
 Stack trace:
 #0 {main}  

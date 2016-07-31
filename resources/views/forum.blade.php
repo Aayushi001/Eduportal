@@ -1,3 +1,4 @@
+
 @extends('layouts.discussionLayout')
 
 @section('content')
