@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,5 +40,4 @@
 <?php echo $__env->yieldContent('content'); ?>
 
 </body>
-
 </html>

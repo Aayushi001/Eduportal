@@ -108,7 +108,4 @@ class DiscussionController extends Controller
         ->with('check', \App\QuestionLikes::where(['question_id'=> $id , 'user_id' => Auth::user()->id])->first());
     }
 
-    	->with('categories', \App\Category::paginate(6));
-    	
-    }
 }

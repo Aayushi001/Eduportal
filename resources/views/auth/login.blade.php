@@ -1,4 +1,3 @@
-
 @extends('layouts.dummy')
 
 @section('content')
