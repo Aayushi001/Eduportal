@@ -23,6 +23,7 @@ class CourseController extends Controller
     	->with('subcategories', \App\Subcategory::all())
     	->with('courses', \App\Course::all())
         ->with('tutorials', \App\Tutorial::all());
+        
     }
 
     public function view($id){
