@@ -90,24 +90,33 @@
         
             	<div class="row">
             	 	<div class="col-md-9 col-md-offset-3">
-	            		<div class="dropdown">
+	            		
+						
+						<div class="dropdown">
+	  						<button class="btn dropdown-toggle dropdown-btn alltut" type="button" data-toggle="dropdown">All Tutorials
+								</button>
+								
+						</div>
+
+						
+						
+						<div class="dropdown">
 	  						<button class="btn dropdown-toggle dropdown-btn " type="button" data-toggle="dropdown">Level
 								<span class="caret"></span></button>
-								<ul class="dropdown-menu">
-								<form method="post">       
-								   <li><a href="#" onclick="{{ $tutorials = \App\Tutorial::where('level', '=', 'Beginner')->orderBy('id', 'DESC')->get()}}"> Beginner</a>
-								  </li>
+								<ul class="dropdown-menu level">
+							       
+								   <li><a href="#" rel="Beginner" > Beginner</a></li>
 								   <li>
-								   <a href="#" onclick="{{ $tutorials = \App\Tutorial::where('level', '=', 'Intermediate')->orderBy('id', 'DESC')->get()}}"> Intermediate
+								   <a href="#" rel="Intermediate"> Intermediate
 								   </a>
 								  
 									</li>
 								   <li>
-								   <a href="#" onclick="{{ $tutorials = \App\Tutorial::where('level', '=', 'Beginner')->orderBy('id', 'DESC')->get()}}"> Advanced
+								   <a href="#" rel="Advanced"> Advanced
 								   </a>
 								  
 									</li>
-								</form>
+							
 								</ul>
 
 						</div>
@@ -115,9 +124,9 @@
 						<div class="dropdown">
 	  						<button class="btn dropdown-btn dropdown-toggle" type="button" data-toggle="dropdown">Language
 								<span class="caret"></span></button>
-								<ul class="dropdown-menu" role="">
-								   <li><a href="#">English</a></li>
-								   <li><a href="#">Hindi</a></li>
+								<ul class="dropdown-menu language">
+								   <li><a href="#" rel="English">English</a></li>
+								   <li><a href="#" rel="Hindi">Hindi</a></li>
 								</ul>
 						</div>
 				
@@ -125,14 +134,15 @@
 					<div class="dropdown">
   						<button class="btn dropdown-toggle dropdown-btn" type="button" data-toggle="dropdown">Price
 							<span class="caret"></span></button>
-							<ul class="dropdown-menu">
-							   <li><a href="#">Low to High</a></li>
-							   <li><a href="#">High to Low</a></li>
+							<ul class="dropdown-menu price">
+							   <li><a href="#" rel="asc">Low to High</a></li>
+							   <li><a href="#" rel="desc">High to Low</a></li>
 	
 							</ul>
 					</div>
             	</div>
             </div>
+			<div class="ajax">
                 @foreach($tutorials as $tutorial)
                 <div class="row">
 	                <div class="col-md-9 col-md-offset-3">
@@ -146,43 +156,112 @@
 	                	</div>
 	                </div>
                 </div>
-             
-                @endforeach
-        
-        
+              
+			 
+			 @endforeach
+        </div>
             </div>
+			 <script>
+			
+			 $(document).ready(function(){
+				 
+			//	view("course",["tutorials"=>$tut])
+				 
+				  $(".language>li>a").click(function(){
+					 
+					 var rel=$(this).attr("rel");
+					
+				
+					$.ajax({
+			
+			type:"POST",
+			url:"{{route('language')}}",
+			data:{language:rel},
+			success:function(data){
+				
+				$(".ajax").html(data);
+			
+			}
+		});
+				 
+				 });
+				 
+				
+				 
+				 
+				 $(".level>li>a").click(function(){
+					 
+					 var rel=$(this).attr("rel");
+					
+				
+					$.ajax({
+			
+			type:"POST",
+			url:"{{route('level')}}",
+			data:{level:rel},
+			success:function(data){
+				
+				$(".ajax").html(data);
+			
+			}
+		});
+				 
+				 });
+				 
+				 	 $(".price>li>a").click(function(){
+					 
+					 var rel=$(this).attr("rel");
+					
+				
+					$.ajax({
+			
+			type:"POST",
+			url:"{{route('price')}}",
+			data:{order:rel},
+			success:function(data){
+				
+				$(".ajax").html(data);
+			
+			}
+		});
+				 
+				 });
+				
+				 
+				 
+				 
+				 
+				 	 $(".alltut").click(function(){
+					 
+					
+					
+				
+					$.ajax({
+			
+			type:"POST",
+			url:"{{route('alltut')}}",
+		
+			success:function(data){
+				
+				$(".ajax").html(data);
+			
+			}
+		});
+				 
+				 });
+				 
+				 
+				 
+			 });
+				 
+				 
+		
+			 </script>
+			 
+			
+               
 
         </div>
 
        
-			
-
-	
-
- 
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @endsection
