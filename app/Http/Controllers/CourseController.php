@@ -1,3 +1,6 @@
+
+
+       
 <?php
 
 namespace App\Http\Controllers;
@@ -6,9 +9,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Input;
-
+use App\Tutorial;
 use Illuminate\Support\Facades\Session;
-
+use DB;
 class CourseController extends Controller
 
 
@@ -63,5 +66,69 @@ class CourseController extends Controller
         return view('profile');
     }
 
+public function ajaxlevel(Request $request)
+{
+	
+				$lev=$request->input("level");
+	$count=Tutorial::where("level",$lev)->count();			
+					if($count==0)
+						return response()->view("sorttut",['count'=>$count]);
+					
+					else{
+	$tuts=Tutorial::where("level",$lev)->get();
+			 
+					return response()->view("sorttut",["tuts"=>$tuts]);}
+}
+public function ajaxlanguage(Request $request)
+{
+	$lev=$request->input("language");
+	$count=Tutorial::where("language",$lev)->count();			
+					if($count==0)
+						return response()->view("sorttut",['count'=>$count]);
+					
+					else{
+	$tuts=Tutorial::where("language",$lev)->get();
+			 
+					return response()->view("sorttut",["tuts"=>$tuts]);}
+				
+}
+public function ajaxprice(Request $request)
+{
+	$lev=$request->input("order");
+	$count=DB::table("tutorials")->count();
+	
+	if($count==0)
+		return response()->view("sorttut",['count'=>$count]);
+	else{
+	if($lev=="asc")
+	{
+		$tuts=Tutorial::orderBy("fee","asc")->get();
+		
+	}
+	else $tuts=Tutorial::orderBy("fee","desc")->get(); 
+	
+			 
+					return response()->view("sorttut",["tuts"=>$tuts]);}
+				
+}
+
+public function ajaxalltut(Request $request)
+{
+	
+
+	$count=DB::table("tutorials")->count();
+	
+	if($count==0)
+		return response()->view("sorttut",['count'=>$count]);
+	else{
+	$tuts=Tutorial::all();
+			 
+					return response()->view("sorttut",["tuts"=>$tuts]);}
+	
+	
+	
+}
+
 
 }
+
