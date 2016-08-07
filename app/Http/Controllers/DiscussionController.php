@@ -42,6 +42,8 @@ class DiscussionController extends Controller
         $user = Auth::user();
         $post->user_id = $user->id;
         $post->save();
+        $request->session()->flash("message","YOUR QUESTION HAS BEEN SUCESSFULLY POSTED");
+		return redirect()->back();
     }
 
     public function viewlist()
