@@ -4,23 +4,30 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="_token" content="{!! csrf_token() !!}"/>
+   
+
 
     <title>Education Portal</title>
-
-    <!-- Fonts -->
-    {{ HTML::style('css/font-awesome.css') }}
+    
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+    
+    
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
 
     <!-- Styles -->
-    {{ HTML::style('css/bootstrap.min.css') }}
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
-    {{-- <link href="{{ elixir('public/css/style.css') }}" rel="stylesheet"> --}}
-    {{ HTML::style('css/style.css') }}
-    {{ HTML::script('js/bootstrap.js') }}
-    {{ HTML::script('js/scrollreveal.js') }}
+	<link href="{{URL::asset('public/css/font-awesome.css')}}" rel="stylesheet" type="text/css" >
+	<link href="{{URL::asset('public/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" >
+	<link href="{{URL::asset('public/css/style.css')}}" rel="stylesheet" type="text/css" >
+	
 
+	
+		<script src="{{URL::asset('public/js/bootstrap.js')}}"></script>
+		<script src="{{URL::asset('public/js/scrollreveal.js')}}"></script>
+   
    
     <style>
         body {
@@ -33,12 +40,13 @@
     </style>
 </head>
 <body id="forum">
+
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
 
                 <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                     <span class="sr-only">Toggle Navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -59,10 +67,10 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
 
-                        <li><a href="{{ url('/discussion-forum/questions') }}">Questions</a></li>
+                        <li><a href="{{route('questions') }}">Questions</a></li>
                        
                         <li><a href="#">FAQ</a></li>
-                        <li><a href="{{ url('/discussion-forum/ask-question') }}">Ask Question</a></li>
+                        <li><a href="{{route('ask-question') }}">Ask Question</a></li>
 
                     <!-- Authentication Links -->
                     @if (Auth::guest())

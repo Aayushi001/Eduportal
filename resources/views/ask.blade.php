@@ -1,11 +1,11 @@
-@extends('layouts.discussionLayout')
 
-@section('content')
+		@extends("layouts.discussionLayout")
+@section("content")
 
-	<div class="container" style="margin-top: 100px;">
+ <div class="container" style="margin-top: 100px;">
 	<div class="row">
 		<div class="col-md-8">
-			<form action="questions" method="POST">
+			<form action="{{route('store')}}" method="POST">
 				<label for="title" class="bold" style="font-size: 18px; margin-right : 10px;"> Title </label>
 				<input type="text" name="title" id="ask" placeholder="What's your question? Be specific.">
 				<br><br>
@@ -50,4 +50,6 @@
 	</div>
 	</div>	
 
+<!-- JavaScripts -->
+   
 @endsection

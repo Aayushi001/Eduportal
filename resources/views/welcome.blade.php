@@ -1,17 +1,39 @@
 @extends('layouts.app')
 
 @section('content')
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+$(".search").click(function(){
+		
+		$(".icon").hide();
+		$(".search").attr("placeholder","");
+	});
+	$("body").click(function(evt){
+		if(evt.target.className!="search")
+		{
+		var t=$(".search").val();
+		
+		if(t==""){
+		$(".icon").show();
+		var u="\xa0\xa0\xa0\xa0\xa0\xa0Search For Courses";
+		$(".search").attr("placeholder",u);}}
+	
+	});
+});
+</script>
 
 <header id="home" class="container-fluid">
         <div class="header-content">
             <div class="row">
-                 <div class="header-content-inner col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 ">
+                 <div class="header-content-inner col-lg-8 col-lg-offset-2  ">
                 <h1>GET STARTED!</h1>
                 <hr> 
                 <div class="input-append">
                     <span>
-                         <input type="text" placeholder=" Search For Courses " class="search">
+					<span class='fa fa-search icon' style="font-size:26px;color:black;position:absolute;left:223px;top:110px"></span>
+                         <input type="text"  class="search" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search For Courses">
                      
                          <button class="btn-danger btn-lg search_btn">Search</button>
                     </span>
@@ -39,7 +61,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 text-center">
                     <div class="service-box">
-                        <img src="images/student2.jpe">
+                        <img src="public/images/student2.jpe">
                         <h3>Characteristics</h3>
                         <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                         tempor incididunt ut labore et </p>
@@ -47,7 +69,7 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 text-center">
                     <div class="service-box">
-                         <img src="images/student2.jpe">
+                         <img src="public/images/student2.jpe">
                         <h3>Characteristics</h3>
                         <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                         tempor incididunt ut labore et </p>
@@ -55,7 +77,7 @@
                 </div>
                 <div class="col-lg-4 col-lg-offset-0 col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3 text-center">
                     <div class="service-box">
-                         <img src="images/student2.jpe">
+                         <img src="public/images/student2.jpe">
                         <h3>Characteristics</h3>
                         <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                         tempor incididunt ut labore et </p>
@@ -80,9 +102,9 @@
         <div class="container">
             <div class="row">
                 <a href="#">
-                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
+                    <div class="col-lg-3 col-md-3 col-sm-4  col-xs-6  text-center">
                         <div class="service-box panel">
-                            <img src="images/project.jpg" >
+                            <img src="public/images/project.jpg" >
                             <h3>Title</h3>
                             <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                             tempor incididunt ut labore et </p>
@@ -93,7 +115,7 @@
                <a href="#">
                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
                     <div class="service-box panel">
-                        <img src="images/js.png">
+                        <img src="public/images/js.png">
                         <h3>Title</h3>
                         <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                         tempor incididunt ut labore et </p>
@@ -104,7 +126,7 @@
                <a href="#">
                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
                         <div class="service-box panel">
-                            <img src="images/project.jpg">
+                            <img src="public/images/project.jpg">
                             <h3>Title</h3>
                             <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                             tempor incididunt ut labore et </p>
@@ -115,7 +137,7 @@
                  <a href="#">
                    <div class=" col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
                     <div class="service-box panel">
-                        <img src="images/js.png">
+                        <img src="public/images/js.png">
                         <h3>Title</h3>
                         <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                         tempor incididunt ut labore et </p>
@@ -126,10 +148,14 @@
             </div>
         </div>
  </section>
-
+ <div class="container">
+<div class="col-lg-12 col-md-12 col-xm-12 col-sm-12" style="margin:0;font-size:15px;position:relative;bottom:100px">
+  
+  <div class="well row" style="background-color:white;height:30px;"><a href="#" style="position:relative;top:-10px;left:30px">Click here for all the courses......</a></div>
+</div></div>
  <!-- Newly Added Courses END -->
 
- <section>
+ 
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -143,7 +169,7 @@
                 <a href="#">
                     <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
                         <div class="service-box panel">
-                            <img src="images/project.jpg" >
+                            <img src="public/images/project.jpg" >
                             <h3>Title</h3>
                             <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                             tempor incididunt ut labore et </p>
@@ -154,7 +180,7 @@
                <a href="#">
                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
                     <div class="service-box panel">
-                        <img src="images/js.png">
+                        <img src="public/images/js.png">
                         <h3>Title</h3>
                         <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                         tempor incididunt ut labore et </p>
@@ -165,7 +191,7 @@
                <a href="#">
                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
                         <div class="service-box panel">
-                            <img src="images/project.jpg">
+                            <img src="public/images/project.jpg">
                             <h3>Title</h3>
                             <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                             tempor incididunt ut labore et </p>
@@ -176,7 +202,7 @@
                  <a href="#">
                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
                     <div class="service-box panel">
-                        <img src="images/js.png">
+                        <img src="public/images/js.png">
                         <h3>Title</h3>
                         <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                         tempor incididunt ut labore et </p>
@@ -186,7 +212,7 @@
                
             </div>
         </div>
- </section>
+ 
 
  <!-- Popular Courses END -->
 
@@ -242,3 +268,4 @@
 
 
 @endsection
+

@@ -22,6 +22,7 @@ class CreateTutorialsTable extends Migration
             $table->string('teacher');
             $table->string('fee');
             $table->string('description');
+			$table->string("language")->default("English");
             $table->timestamps();
         });
     }
