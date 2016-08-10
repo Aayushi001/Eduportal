@@ -30,7 +30,7 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/home', function () {
         return view('home');
-    })->middleware('auth');
+    })->name("home")->middleware('auth');
 
     Route::get('/browse', array('as'=>'browse', 'uses'=> 'CourseController@open'));
 
@@ -48,10 +48,15 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::any('/discussion-forum/question/{id}', array('as'=>'question.view', 'uses'=>'DiscussionController@viewquestion'));
 
+Route::post("/discussion-forum/question/ajaxlike", array('as'=>'ajaxlike', 'uses'=>'DiscussionController@ajaxlike'));
 
+Route::post("/discussion-forum/question/ajaxcomment", array('as'=>'ajaxcomment', 'uses'=>'DiscussionController@ajaxcomment'));
     Route::post('/discussion-forum/store', array('as'=>'store', 'uses'=>'DiscussionController@store'));
+Route::post('/courses/level',array('as'=>'level', 'uses'=>'CourseController@ajaxlevel'));
+Route::post("/courses/language",array('as'=>'language', 'uses'=>'CourseController@ajaxlanguage'));
 
-
+Route::post("/courses/price",array('as'=>'price', 'uses'=>'CourseController@ajaxprice'));
+Route::post("/courses/all",array('as'=>'alltut', 'uses'=>'CourseController@ajaxalltut'));
 
     
 
